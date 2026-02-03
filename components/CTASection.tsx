@@ -34,7 +34,7 @@ const CTASection: React.FC = () => {
               Get Started
             </motion.button>
             <motion.button
-              whileHover={{ scale: 1.05, bg: 'rgba(255,255,255,0.1)' }}
+              whileHover={{ scale: 1.05, backgroundColor: 'rgba(255,255,255,0.1)' }}
               whileTap={{ scale: 0.95 }}
               className="w-full sm:w-auto bg-transparent border-2 border-white/30 text-white font-bold px-10 py-5 rounded-2xl flex items-center justify-center text-lg backdrop-blur-sm"
             >

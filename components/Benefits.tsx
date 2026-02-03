@@ -1,5 +1,3 @@
-"use client";
-
 import React, { use } from 'react';
 import { motion } from 'framer-motion';
 import { Recycle, Zap, BookOpen, BatteryLow, Sprout, ShieldCheck } from 'lucide-react';
