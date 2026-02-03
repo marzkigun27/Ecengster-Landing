@@ -1,5 +1,6 @@
+"use client";
 
-import React from 'react';
+import React, { use } from 'react';
 import { motion } from 'framer-motion';
 import { Recycle, Zap, BookOpen, BatteryLow, Sprout, ShieldCheck } from 'lucide-react';
 
@@ -53,7 +54,9 @@ const Benefits: React.FC = () => {
               className="bg-white dark:bg-navy p-8 rounded-3xl border border-primary/5 dark:border-white/5 transition-all"
             >
               <div className="w-14 h-14 rounded-2xl bg-secondary/20 dark:bg-white/5 text-primary dark:text-secondary flex items-center justify-center mb-6">
-                {React.cloneElement(benefit.icon as React.ReactElement, { className: "w-8 h-8" })}
+                <div className="w-8 h-8">
+                  {benefit.icon}
+                </div>
               </div>
               <h3 className="text-xl font-heading font-bold text-navy dark:text-white mb-3">{benefit.title}</h3>
               <p className="text-navy/60 dark:text-white/60 leading-relaxed">{benefit.desc}</p>
