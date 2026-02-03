@@ -1,20 +1,39 @@
 @import "tailwindcss";
 
+/* 1. Tell Tailwind to look for the .dark class on a parent (html) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary: #1F6F5C;
+  --color-secondary: #7ED6C1;
+  --color-accent: #F2C94C;
+  --color-navy: #1E2A32;
+  --color-cream: #F7F4E9;
+  --color-darkBg: #0B1114;
+  
+  --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-heading: Poppins, ui-sans-serif, system-ui, sans-serif;
+  
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+/* 2. Default Light Mode variables */
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* 3. Manual Dark Mode (Triggered by your JS toggle) */
+.dark {
+  --background: #0B1114; /* Using your --color-darkBg value */
+  --foreground: #ededed;
 }
 
+/* 4. Keep System Dark Mode (Optional: syncs with OS) */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
+  :root:not(.light) { /* only apply if user hasn't forced 'light' */
+    --background: #0B1114;
     --foreground: #ededed;
   }
 }
@@ -22,5 +41,14 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.diagonal-bg {
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+}
+
+.diagonal-bg-reverse {
+  clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
 }
